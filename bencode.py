@@ -12,8 +12,8 @@ url = sys.argv
 
 service = Service(config.chromedriver)
 service.start()
-driver = webdriver.Remote(url)
-driver.get(config.site1)
+driver = webdriver.Remote(service.service_url)
+driver.get(url)
 # elem = driver.find_element_by_class_name("polldaddy-placeholder")
 radio1 = driver.find_element_by_id("PDI_answer48849862")
 radio1.click()
