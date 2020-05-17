@@ -57,5 +57,5 @@ if __name__ == '__main__':
     # for link in links:
     #     parse_content(link)
 
-    url = config.websites[0]
+    url = 'https://www.google.com'
     parse_content(url)
