@@ -11,21 +11,21 @@ import subprocess
 server_ls = "$('" + "', '".join([url for url in config.sites]) + "')"
 
 # can call line below successfully -- cannot seem to loop it
-# subprocess.call("powershell; ./.venv/Scripts/python3.exe bencode.py {0}".format(server_ls[0]))
+subprocess.call("powershell C:/'Program Files (x86)'/NordVPN/NordVPN.exe -c -g 'United States'; ./.venv/Scripts/python3.exe bencode.py {0}".format(config.sites[0]))
 
-while True:
-    # subprocess.call("powershell C:/'Program Files (x86)'/NordVPN/NordVPN.exe -c -g 'United States';", shell=True)
-    # time.sleep(10)
-    for url in config.sites:
-        print(url)
-        subprocess.call("""
-            powershell;
-            ./.venv/Scripts/python3.exe bencode.py '{0}';
-            echo "successful --- '{0}';
-             """.format(url)
-            , shell=True)
+# while True:
+#     # subprocess.call("powershell C:/'Program Files (x86)'/NordVPN/NordVPN.exe -c -g 'United States';", shell=True)
+#     # time.sleep(10)
+#     for url in config.sites:
+#         print(url)
+#         subprocess.call("""
+#             powershell;
+#             ./.venv/Scripts/python3.exe bencode.py '{0}';
+#             echo "successful --- '{0}';
+#              """.format(url)
+#             , shell=True)
 
-        time.sleep(20)
+#         time.sleep(20)
     # subprocess.call("""
     #     powershell; 
     #     C:/'Program Files (x86)'/NordVPN/NordVPN.exe -c -g "United States;

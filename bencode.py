@@ -7,8 +7,7 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.keys import Keys
 
 import config
-
-url = sys.argv[0]
+url = sys.argv[-1]
 if not url.endswith("/"):
     url = None
     quit()
