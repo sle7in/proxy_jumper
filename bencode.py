@@ -11,7 +11,7 @@ url = sys.argv[-1]
 if not url.endswith("/"):
     url = None
     quit()
-
+print("starting selenium.")
 service = Service(config.selenium_driver)
 service.start()
 driver = webdriver.Remote(service.service_url)
