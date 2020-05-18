@@ -8,16 +8,19 @@ from selenium.webdriver.common.keys import Keys
 
 import config
 
-url = sys.argv
+url = sys.argv[0]
+if not url.endswith("/"):
+    url = None
+    quit()
 
-service = Service(config.chromedriver)
+service = Service(config.selenium_driver)
 service.start()
 driver = webdriver.Remote(service.service_url)
 driver.get(url)
 # elem = driver.find_element_by_class_name("polldaddy-placeholder")
-radio1 = driver.find_element_by_id("PDI_answer48849862")
+radio1 = driver.find_element_by_id(config.answer_id)
 radio1.click()
-vote = driver.find_element_by_id("pd-vote-button10551560")
+vote = driver.find_element_by_id(config.vote_button)
 vote.click()
-time.sleep(15) # quits web instance after voting
+time.sleep(5) # quits web instance after voting
 driver.quit()
